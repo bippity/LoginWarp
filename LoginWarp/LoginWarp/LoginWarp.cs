@@ -42,7 +42,7 @@ namespace LoginWarpPlugin
         }
         void OnInitialize()
 		{
-			string path = Path.Combine(TShock.SavePath, "login-warp.json");
+			string path = Path.Combine(TShock.SavePath, "login-warp.txt");
 			if (File.Exists(path))
 			{
 				Config = Config.Read(path);
