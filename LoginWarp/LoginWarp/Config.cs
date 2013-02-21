@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using Newtonsoft.Json;
+//using Newtonsoft.Json;
 
 namespace LoginWarpPlugin
 {
@@ -13,7 +13,8 @@ namespace LoginWarpPlugin
 
         public void Write(string path)
         {
-            File.WriteAllText(path, JsonConvert.SerializeObject(this, Formatting.Indented));
+            //File.WriteAllText(path, JsonConvert.SerializeObject(this, Formatting.Indented));
+            File.WriteAllText("Name of warp:spawn");
         }
 
         public static Config Read(string path)
@@ -22,7 +23,9 @@ namespace LoginWarpPlugin
             {
                 return new Config();
             }
-            return JsonConvert.DeserializeObject<Config>(File.ReadAllText(path));
+            //return JsonConvert.DeserializeObject<Config>(File.ReadAllText(path));
+            var text = File.ReadAllText(path);
+            return text.Split(':')[1].TrimStart(' ');
         }
     }
 }
