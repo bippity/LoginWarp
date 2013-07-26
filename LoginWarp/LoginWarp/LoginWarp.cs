@@ -52,7 +52,8 @@ namespace LoginWarpPlugin
         void onLogin(TShockAPI.Hooks.PlayerLoginEventArgs ply)
         {
            Warp warp = TShock.Warps.FindWarp(Config.Warp);
-           ply.Player.Teleport((int)warp.WarpPos.X, (int)warp.WarpPos.Y + 3);
+           if (warp != null)
+           	ply.Player.Teleport((int)warp.WarpPos.X, (int)warp.WarpPos.Y + 3);
         }
     }
 }
