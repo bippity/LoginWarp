@@ -34,15 +34,16 @@ namespace LoginWarpPlugin
 		public LoginWarp(Main game)
 			: base(game)
 		{
+			OnInitialize();
 		}
 		public override void Initialize()
 		{
 			PlayerHooks.PlayerPreLogin += onLogin;
-			TShock.Initialized += OnInitialize;
+			// TShock.Initialized += OnInitialize;
 		}
 		void OnInitialize()
 		{
-			string path = Path.Combine(TShock.SavePath, "login-warp.txt");
+			string path = Path.Combine(TShock.SavePath, "login-warp.json");
 			if (File.Exists(path))
 			{
 				Config = Config.Read(path);
@@ -54,7 +55,7 @@ namespace LoginWarpPlugin
 		{
 			Warp warp = TShock.Warps.Find(Config.Warp);
 			if (warp != null)
-				ply.Player.Teleport((int)warp.Position.X, (int)warp.Position.Y + 3);
+				ply.Player.Teleport((int)warp.Position.X * 16, (int)warp.Position.Y * 16);
 		}
 	}
 }
