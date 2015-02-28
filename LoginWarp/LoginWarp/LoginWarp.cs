@@ -16,7 +16,7 @@ namespace LoginWarpPlugin
 		private Config Config = new Config();
 		public override Version Version
 		{
-			get { return new Version("1.1"); }
+			get { return new Version("1.2"); }
 		}
 		public override string Name
 		{
@@ -39,7 +39,6 @@ namespace LoginWarpPlugin
 		public override void Initialize()
 		{
 			PlayerHooks.PlayerPreLogin += onLogin;
-			// TShock.Initialized += OnInitialize;
 		}
 		void OnInitialize()
 		{
@@ -55,7 +54,12 @@ namespace LoginWarpPlugin
 		{
 			Warp warp = TShock.Warps.Find(Config.Warp);
 			if (warp != null)
-				ply.Player.Teleport((int)warp.Position.X * 16, (int)warp.Position.Y * 16);
+			{
+				if (ply.Player.Group.Name == Config.GroupName)
+				{
+					ply.Player.Teleport((int)warp.Position.X * 16, (int)warp.Position.Y * 16);
+				}
+			}
 		}
 	}
 }
