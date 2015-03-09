@@ -10,13 +10,13 @@ using Newtonsoft.Json;
 
 namespace LoginWarpPlugin
 {
-	[ApiVersion(1, 16)]
+	[ApiVersion(1, 17)]
 	public class LoginWarp : TerrariaPlugin
 	{
 		private Config Config = new Config();
 		public override Version Version
 		{
-			get { return new Version("1.2"); }
+			get { return new Version("1.3"); }
 		}
 		public override string Name
 		{
