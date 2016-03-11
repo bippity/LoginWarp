@@ -10,7 +10,7 @@ namespace LoginWarpPlugin
 	public class Config
 	{
 		public string Warp = "spawn";
-		public string GroupName = "Default";
+		public string GroupName = "guest";
 
 		public void Write(string path)
 		{
